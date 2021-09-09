@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% block title %}Интерфейс{% endblock %}
+{% block content %}
+{% load static %}
+<h1>Облік стандартних варіантів сходів з масиву дерева <button class="btn btn-default" class="btn">Додати</button></h1>
+<div class="div1">
+<form action={% url 'accstairs:add' %} method='POST'>
+    {% csrf_token %}
+    <div class="form_sum_child " style="vertical-align: top">
+        <div class="form_sum_child" style="vertical-align: top">
+
+
+            <div class="input_form">
+                <div class="input_form_child"><input name="username" type="hidden" value="{{ user.username }}">
+                    <label>Кількість поверхів:</label>
+                    <select class="form-select" name="numlayers" required="">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input_form">
+                <div class="input_form">
+                    <div class="input_form_child"><label>Вид сходів:</label>
+                        <select class="form-select" required="" name="stair" id="variant-select">
+                            <option value="Г-подібна" data-price="{% static 'images/types/g-obraznaya.jpg' %}"> Г-подібна</option>
+                            <option value="П-подібна" data-price="{% static 'images/types/p-obraznaya.jpg' %}">П-подібна</option>
+                            <option value="Пряма" data-price="{% static 'images/types/pryamaya.jpg' %}">Пряма</option>
+                            <option value="Гвинтова" data-price="{% static 'images/types/vintivaya.jpg' %}">Гвинтова</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input_form">
+                    <div class="input_form_child"><label>Тип каркасу:</label>
+                        <select class="form-select" required="" name="karkas">
+                            <option value="Дерево">Дерево</option>
+                            <option value="Металл">Металл</option>
+                            <option value="Бетон">Бетон</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input_form">
+                    <div class="input_form_child"><label>Вид матеріалу сходів:</label>
+                        <select class="form-select" required="" name="material">
+                            <option value="Дерево">Дуб</option>
+                            <option value="Бук">Бук</option>
+                            <option value="Сосна">Сосна</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input_form">
+                    <div class="input_form_child"><label>Вид огорожі:</label>
+                        <select class="form-select" required="" name="rail">
+                            <option value="Дерево">Дерево</option>
+                            <option value="Стекло">Стекло</option>
+                            <option value="Металл">Металл</option>
+                        </select>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="form_sum_child">
+            <div class="input_form">
+                <div class="input_form_child"><label>Вид матеріалу огорожі:</label>
+                    <select class="form-select" required="" name="rail_material">
+                        <option value="Дерево">Дерево</option>
+                        <option value="Металл">Металл</option>
+                        <option value="Бетон">Бетон</option>
+                    </select>
+                </div>
+            </div>
+            <div class="input_form">
+                <div class='input_form_child'>
+                    <input type="text" required="" name="height" style="width: 100%">
+                    <span class="bar"></span>
+                    <label class="label_input">Висота поверхів в см</label>
+                </div>
+            </div>
+            <div class="input_form">
+                <div class='input_form_child'>
+                    <input type="text" required="" name="width" style="width: 100%">
+                    <span class="bar"></span>
+                    <label class="label_input">Ширина отвору в см</label>
+                </div>
+            </div>
+            <div class="input_form">
+                <div class='input_form_child'>
+                    <input type="text" required="" name="long" style="width: 100%">
+                    <span class="bar"></span>
+                    <label class="label_input">Длина отвору в см:</label>
+                </div>
+            </div>
+            <div class="input_form">
+                <div class='input_form_child'>
+                    <input type="text" required="" name="height_step" style="width: 100%">
+                    <span class="bar"></span>
+                    <label class="label_input">Висота сходинки в см:</label>
+                </div>
+            </div>
+            <div class="input_form">
+                <div class="input_form_child">
+                    <label>Вид обробки:</label>
+                    <select class="form-select" required="" name="obrobka">
+                        <option value="Без обробки">Без обробки</option>
+                        <option value="Лак">Лак</option>
+                        <option value="Тоніровка">Тоніровка</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+        <div class="form_sum_child" style="vertical-align: top">
+            <img id="photo-big" src="{% static 'images/types/g-obraznaya.jpg' %}" style="max-width:620px; max-height: 420px" class="target-img" alt="">
+        </div>
+        <div>
+            <label>Колір сходів:</label><br>
+            <label for="color"><img src="{% static 'images/colors/1.png' %}" alt=""></label>
+            <input type="radio" value=1 class="radio_color" name="color" id="color" required>
+
+            <label for="color2"><img src="{% static 'images/colors/2.png' %}" alt=""></label>
+            <input type="radio" value=2 class="radio_color" name="color" id="color2">
+
+            <label for="color3"><img src="{% static 'images/colors/3.png' %}" alt=""></label>
+            <input type="radio" value=3 class="radio_color" name="color" id="color3">
+
+            <label for="color4"><img src="{% static 'images/colors/4.png' %}" alt=""></label>
+            <input type="radio" value=4 class="radio_color" name="color" id="color4">
+
+            <label for="color5"><img src="{% static 'images/colors/5.png' %}" alt=""></label>
+            <input type="radio" value=5 class="radio_color" name="color" id="color5">
+
+            <label for="color6"><img src="{% static 'images/colors/6.png' %}" alt=""></label>
+            <input type="radio" value=6 class="radio_color" name="color" id="color6">
+
+            <label for="color7"><img src="{% static 'images/colors/7.png' %}" alt=""></label>
+            <input type="radio" value=7 class="radio_color" name="color" id="color7">
+
+            <label for="color8"><img src="{% static 'images/colors/8.png' %}" alt=""></label>
+            <input type="radio" value=8 class="radio_color" name="color" id="color8">
+        </div>
+        <div class='input-group mb-3 group'>
+            <input type="text" required="" name="price">
+            <span class="bar"></span>
+            <label class="label_input">Сума:</label>
+        </div>
+
+        <button class="btn btn-light btn-form" type="submit">Cтворити</button>
+    </div>
+</form><br>
+</div>
+<div class="table_scroll">
+    <table class="table" id="info-table">
+        <tr>
+            <th scope="col">Вид матеріалу <br> сходів</th>
+            <th scope="col">Тип каркасу</th>
+            <th scope="col">Вид сходів</th>
+            <th scope="col">Вид огорожі</th>
+            <th scope="col">Вид матеріалу <br> огорожі</th>
+            <th scope="col">Вид обробки</th>
+            <th scope="col">Колір сходів</th>
+            <th scope="col">Сума в грн</th>
+
+            <!--
+        <th scope="col">Высота поверха</th>
+        <th scope="col">Ширина проёма</th>
+-->
+            <th scope="col"></th>
+        </tr>
+        {% if stairs %}
+        {% for stair in stairs %}
+        {% if not stair.archive %}
+        <tr>
+            <form action={% url 'accstairs:update' stair.id %} method='POST'>
+                {% csrf_token %}
+                <td scope="row"><input type="text" class="input_table" value="{{ stair.material }}" name="material"></td>
+                <td><input type="text" class="input_table" value="{{ stair.karkas }}" name="karkas"></td>
+                <td><input type="text" class="input_table" value="{{ stair.stair }}" name="stair"></td>
+                <td><input type="text" class="input_table" value="{{ stair.rail }}" name="rail"></td>
+                <td><input type="text" class="input_table" value="{{ stair.rail_material }}" name="rail_material"></td>
+                <td><input type="text" class="input_table" value="{{ stair.obrobka }}" name="obrobka"></td>
+                <td>
+                    <img type="text" class="input_table" style="width:120px;height: 40px;" src="{{ stair.get_color_url }}" name="color">
+                </td>
+                <td><input type="text" class="input_table" value="{{ stair.price }}" name="price"></td>
+
+                <!--
+        <td name="email"><input type="text" class="input_table" value="{{ stair.height }}" name="height"></td>
+        <td name="phone"><input type="text" class="input_table" value="{{ stair.weight }}" name="weight"></td>
+-->
+                <td>
+                    <button type="submit" class="table_icon"><img src="{% static 'images/icons/pen.png' %}" alt=""></button>
+                    <button type="button" class="table_icon"><a href="{% url 'accstairs:archive' stair.id %} "><img src="{% static 'images/icons/archive.png' %}" alt=""></a></button>
+                    <button type="button" class="table_icon"><a href="{% url 'accstairs:delete' stair.id %} "><img src="{% static 'images/icons/trash.png' %}" alt=""></a></button>
+                </td>
+            </form>
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+
+    </table>
+</div>
+<form action="{% url 'accstairs:excel'%}">
+    <button class="btn btn-outline-success">Export to Excel !</button>
+</form>
+
+
+
+{% endblock %}

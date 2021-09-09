@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+
+&nbsp;{% block content %}
+    <!-- container -->
+    <div style="padding-left: 400px" class="container">
+        <div class="row">
+
+            <!-- Article main content -->
+            <article class="col-xs-12 maincontent">
+
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h3 class="thin text-center">Зареєструвати новий акаунт</h3>
+                            <p class="text-center text-muted"><a
+                                    href={% url 'authorize:signin' %}>Ввійти</a></p>
+                            <hr>
+
+                            <form action={% url 'authorize:reg' %} method='POST'>
+                                {% csrf_token %}
+                                <div class="top-margin">
+                                    <label>Логін<span class="text-danger">*</span></label>
+                                    <input required name="username" type="text" class="form-control">
+                                </div>
+                                <div class="top-margin">
+                                    <label>Ім'я</label>
+                                    <input required name="first_name" type="text" class="form-control">
+                                </div>
+                                <div class="top-margin">
+                                    <label>Прізвище</label>
+                                    <input required name="last_name" type="text" class="form-control">
+                                </div>
+                                <div class="top-margin">
+                                    <label>Електронна пошта <span class="text-danger">*</span></label>
+                                    <input required name="email" type="text" class="form-control">
+                                </div>
+
+                                <div class="row top-margin">
+                                    <div class="col-sm-6">
+                                        <label>Пароль <span class="text-danger">*</span></label>
+                                        <input required name="password" type="password" class="form-control">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <label>Підтвердить Пароль <span class="text-danger">*</span></label>
+                                        <input required name="password2" type="password" class="form-control">
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <label class="checkbox">
+                                            <input class="checkbox-register" type="checkbox" required>
+                                            Я прочитав <a href="page_terms.html">Умови використання</a>
+                                        </label>
+                                    </div>
+                                    {{users }}
+                                    <div class="col-lg-4 text-right">
+                                        <button class="btn btn-action" type="submit">Зарєєструватися</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </article>
+            <!-- /Article -->
+
+        </div>
+    </div>    <!-- /container -->
+
+{% endblock content %}

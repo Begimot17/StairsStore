@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block title %}Интерфейс{% endblock %}
+{% block content %}
+{% load static %}
+<h1>Постачальник</h1>
+<div class="table_scroll">
+    <div class="form_sum_child" style="padding-right: 200px">
+        <h2 scope="col">Постачальник: {{ order.name }}</h2>
+        <h2 scope="col">ПІБ: {{ order.first_name }} {{ order.last_name }} {{order.next_name}}</h2>
+        <h2 scope="col">Email: {{ order.email }}</h2>
+        <h2 scope="col">Адреса: {{ order.address }}</h2>
+        <h2 scope="col">Телефон: {{ order.phone }}</h2>
+        <h2 scope="col">Категория: {{ order.category }}</h2>
+        <h2 scope="col">Матеріал: {{ order.material }}</h2>
+    </div>
+  
+</div>
+{% endblock %}

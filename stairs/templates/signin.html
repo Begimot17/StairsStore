@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+
+&nbsp;{% block content %}
+    <div style="padding-left: 400px" class="container">
+
+        <div class="row">
+
+            <!-- Article main content -->
+            <article class="col-xs-12 maincontent">
+
+                <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+                    <div class="panel panel-default">
+                        <div class="panel-body">
+                            <h3 class="thin text-center">Увійдіть до свого облікового запису</h3>
+                            <p class="text-center text-muted"><a
+                                    href={% url 'authorize:signup' %}>Зарєєструватися</a></p>
+                            <hr>
+
+                            <form action={% url 'authorize:log' %} method='POST'>
+                                {% csrf_token %}
+                                <div class="top-margin">
+                                    <label>Логін <span class="text-danger">*</span></label>
+                                    <input required name="username" type="text" class="form-control">
+                                </div>
+                                <div class="top-margin">
+                                    <label>Пароль <span class="text-danger">*</span></label>
+                                    <input required name="password" type="password" class="form-control">
+                                </div>
+
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col-lg-8">
+                                        <b><a href="">Забули пароль?</a></b>
+                                        
+                                    </div>
+                                    <div class="col-lg-4 text-right">
+                                        <button class="btn btn-action" type="submit">Увійти</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+                </div>
+
+            </article>
+            <!-- /Article -->
+
+        </div>
+    </div>    <!-- /container -->
+{% endblock content %}
+
+

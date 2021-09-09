@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block title %}Интерфейс{% endblock %}
+{% block content %}
+    {% load static %}
+
+ <div class="container">
+    <div class="row">
+        <div class="gallery col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <h1 class="gallery-title">Наші виконані замовлення</h1>
+        </div>
+        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe"><a href={% static 'images/gallery/1.jpg' %}> <img src={% static 'images/gallery/1.jpg' %} class="img-responsive"></a> </div>
+        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter sprinkle"><a href={% static 'images/gallery/2.jpg' %}> <img src={% static 'images/gallery/2.jpg' %} class="img-responsive"></a> </div>
+        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter hdpe"><a href={% static 'images/gallery/3.jpg' %}> <img src={% static 'images/gallery/3.jpg' %} class="img-responsive"></a> </div>
+        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation"><a href={% static 'images/gallery/4.jpg' %}> <img src={% static 'images/gallery/4.jpg' %} class="img-responsive"></a> </div>
+        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter spray"><a href={% static 'images/gallery/5.jpg' %}> <img src={% static 'images/gallery/5.jpg' %} class="img-responsive"></a> </div>
+        <div class="gallery_product col-lg-4 col-md-4 col-sm-4 col-xs-6 filter irrigation"><a href={% static 'images/gallery/6.jpg' %}> <img src={% static 'images/gallery/6.jpg' %} class="img-responsive"></a> </div>
+    </div>
+</div>
+{% endblock %}

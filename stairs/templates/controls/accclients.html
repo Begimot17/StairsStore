@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% block title %}Интерфейс{% endblock %}
+{% block content %}
+{% load static %}
+
+<h1>Облік клієнтів <button class="btn btn-default">Додати</button>
+</h1>
+
+
+<div class="div1">
+    <form action={% url 'accclients:add' %} method='POST'>
+        {% csrf_token %}
+        <div class="form_sum_child">
+            <div class='input-group mb-3 group'>
+                <input type="text" required="" name="last_name">
+                <span class="bar"></span>
+                <label class="label_input">Прізвіще</label>
+            </div>
+        </div>
+        <div class="form_sum_child">
+            <div class='input-group mb-3 group'>
+                <input type="text" required="" name="first_name">
+                <span class="bar"></span>
+                <label class="label_input">Ім'я</label>
+            </div>
+        </div>
+        <div class="form_sum_child">
+            <div class='input-group mb-3 group'>
+                <input type="text" required="" name="next_name">
+                <span class="bar"></span>
+                <label class="label_input">По батькові</label>
+            </div>
+        </div>
+        <div class="form_sum_child">
+            <div class='input-group mb-3 group'>
+                <input type="email" required="" name="email">
+                <span class="bar"></span>
+                <label class="label_input">Email</label>
+            </div>
+        </div>
+
+        <div class="form_sum_child">
+            <div class='input-group mb-3 group'>
+                <input type="text" required="" name="phone">
+                <span class="bar"></span>
+                <label class="label_input">Телефон</label>
+            </div>
+        </div>
+        <div class="form_sum_child">
+            <button class="btn btn-light" type="submit">Cтворити</button>
+        </div>
+
+    </form>
+    <br>
+</div>
+<div class="table_scroll">
+    <table class="table" id="info-table">
+        <tr>
+            <th scope="col">Прізвище</th>
+            <th scope="col">Ім'я</th>
+            <th scope="col">По батькові</th>
+
+            <th scope="col">Email</th>
+            <th scope="col">Телефон</th>
+            <th scope="col">Кількість замовлень</th>
+            <th scope="col"></th>
+        </tr>
+        {% if clients %}
+        {% for client in clients %}
+        {% if not client.archive %}
+        <tr>
+            <form action={% url 'accclients:update' client.id %} method='POST'>
+                {% csrf_token %}
+                <td scope="row" name="last_name"><input type="text" class="input_table" value="{{ client.last_name }}" name="last_name"></td>
+                <td name="first_name"><input type="text" class="input_table" value="{{ client.first_name }}" name="first_name"></td>
+                <td name="next_name"><input type="text" class="input_table" value="{{ client.next_name }}" name="next_name"></td>
+                <td name="email"><input type="email" class="input_table" value="{{ client.email }}" name="email"></td>
+                <td name="phone"><input type="text" class="input_table" value="{{ client.phone }}" name="phone"></td>
+                <td name="num_orders">
+                    <input type="text" readonly class="input_table" value="{{client.num_orders}}">
+                </td>
+                <td>
+                    <button type="submit" class="table_icon"><img src="{% static 'images/icons/pen.png' %}" alt=""></button>
+                    <button type="button" class="table_icon"><a href="{% url 'accclients:archive' client.id %} "><img src="{% static 'images/icons/archive.png' %}" alt=""></a></button>
+                    <button type="button" class="table_icon"><a href="{% url 'accclients:delete' client.id %} "><img src="{% static 'images/icons/trash.png' %}" alt=""></a></button>
+                </td>
+            </form>
+        </tr>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+
+    </table>
+</div>
+<!--
+<form action="{% url 'accstairs:excel'%}">
+    <button class="btn btn-outline-success">Архів</button>
+</form>
+-->
+<form action="{% url 'accclients:excel'%}">
+    <button class="btn btn-outline-success">Export to Excel !</button>
+</form>
+
+{% endblock %}

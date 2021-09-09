@@ -1,0 +1,109 @@
+{% extends 'base.html' %}
+{% block title %}Интерфейс{% endblock %}
+{% block content %}
+  <div style="padding: 1%">
+       <h1>Аналіз прибутку фірми</h1>
+       <h4>Прибуток фірми</h4>
+<div id="oil"></div>
+<h4>Замовлення для постачальників</h4>
+<div id="oil2" ></div>
+<h4>Замовлення від кліентів</h4>
+<div id="oil3"></div>
+
+  </div>
+  
+
+
+<script src="https://www.google.com/jsapi"></script>
+<script>
+    google.load("visualization", "1", {
+        packages: ["corechart"]
+    });
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable([
+            ['Год', 'Дохід', 'Витрата', 'Чистий прибуток'],
+            ['05/2021', 60000, 40000, 20000],
+            ['06/2021', 80000, 55000, 25000]
+        ]);
+        var options = {
+            hAxis: {
+                title: 'Місяць'
+            },
+            vAxis: {
+                title: 'Грн'
+            }
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById('oil'));
+        chart.draw(data, options);
+    }
+
+</script>
+<!--
+<script>
+    google.load("visualization", "1", {
+        packages: ["corechart"]
+    });
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable({{values|safe}}
+        );
+        var options = {
+            hAxis: {
+                title: 'Місяць'
+            },
+            vAxis: {
+                title: 'Грн'
+            }
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById('oil'));
+        chart.draw(data, options);
+    }
+
+</script>
+-->
+<script>
+    google.load("visualization", "1", {
+        packages: ["corechart"]
+    });
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable({{jsup|safe}});
+        var options = {
+            hAxis: {
+                title: 'Місяць'
+            },
+            vAxis: {
+                title: 'Грн'
+            }
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById('oil2'));
+        chart.draw(data, options);
+    }
+
+</script>
+<script>
+    google.load("visualization", "1", {
+        packages: ["corechart"]
+    });
+    google.setOnLoadCallback(drawChart);
+
+    function drawChart() {
+        var data = google.visualization.arrayToDataTable({{jcli|safe}});
+        var options = {
+            hAxis: {
+                title: 'Місяць'
+            },
+            vAxis: {
+                title: 'Кількість'
+            }
+        };
+        var chart = new google.visualization.ColumnChart(document.getElementById('oil3'));
+        chart.draw(data, options);
+    }
+
+</script>
+{% endblock %}

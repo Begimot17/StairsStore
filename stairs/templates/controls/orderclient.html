@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block title %}Интерфейс{% endblock %}
+{% block content %}
+{% load static %}
+<h1>Замовлення {{ order.order_number }}</h1>
+<div class="table_scroll">
+    <div class="form_sum_child" style="padding-right: 200px">
+        <h2 scope="col">Клієнт: {{ order.client_id.first_name }} {{ order.client_id.last_name }}</h2>
+        <h2 scope="col">Номер замовлення: {{ order.order_number }}</h2>
+        <h2 scope="col">Дата замовлення: {{ order.order_date|date:"Y-m-d" }}</h2>
+        <h2 scope="col">Дата затвердження: {{ order.approval_date|date:"Y-m-d" }}</h2>
+        <h2 scope="col">Дата виїзду на місце: {{ order.departure_date|date:"Y-m-d" }}</h2>
+        <h2 scope="col">Оріент сума в грн: {{ order.estimated_price }}</h2>
+        <h2 scope="col">Фінальна сума в грн: {{ order.final_price }}</h2>
+        <h2 scope="col">Дата встановлення: {{ order.install_date|date:"Y-m-d" }}</h2>
+        <h2 scope="col">К-сть днів на встанов: {{ order.num_days }}</h2>
+    </div>
+    <div class="form_sum_child">
+
+        <h2 scope="col">Дата заверш робіт: {{ order.complete_date|date:"Y-m-d" }}</h2>
+        <h2 scope="col">Статус: {% if status %}
+            {% for st in status %}
+            {% if order.status == st.name %}
+            {{st.value}}
+            {% else %}
+            {% endif %}
+            {% endfor %}
+            {% endif %}
+        </h2>
+        <h2 scope="col">Вид матеріалу сходів: {{ order.material }}</h2>
+        <h2 scope="col">Тип каркасу: {{ order.karkas }}</h2>
+        <h2 scope="col">Вид сходів: {{ order.stair }}</h2>
+        <h2 scope="col">Вид огорожі: {{ order.rail }}</h2>
+        <h2 scope="col">Вид матеріалу огорожі: {{ order.rail_material }}</h2>
+        <h2 scope="col">Вид обробки: {{ order.obrobka }}</h2>
+    </div>
+</div>
+{% endblock %}

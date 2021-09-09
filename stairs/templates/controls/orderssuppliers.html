@@ -1,0 +1,120 @@
+{% extends 'base.html' %}
+{% block title %}Интерфейс{% endblock %}
+{% block content %}
+{% load static %}
+<h1>Замовлення для постачальників<button class="btn btn-default">Додати</button></h1>
+
+
+<div class="div1">
+    <form action={% url 'orders:addsuppliers' %} method='POST'>
+        {% csrf_token %}
+        <div class="form_sum_child" style="width: 20%">
+            <label>Постачальник:</label>
+            <select class="form-select" required="" name="supplier_id">
+                {% if suppliers %}
+                {% for supplier in suppliers %}
+                <option value="{{supplier.id}}">{{supplier.name}}</option>
+                {% endfor %}
+                {% endif %}
+            </select>
+        </div>
+        <div class="form_sum_child" style="width: 10%;vertical-align: top">
+            <label>Номер накладної:</label>
+            <input type="text" style="width: 100%" required="" placeholder="Номер накладної" name="order_number"><br><br>
+        </div>
+
+
+        <div class="form_sum_child" style="width: 12%;vertical-align: top">
+            <label>Сума замовлення в грн:</label>
+            <input type="text" style="width: 100%" required="" placeholder="Сума замовлення" name="price"><br><br>
+        </div>
+
+        <div class="form_sum_child" style="width: 25%;vertical-align: top">
+            <label>Примітка:</label>
+            <br>
+            <textarea name="mark" cols="50" rows="2"></textarea>
+        </div>
+        <div class="form_sum_child" style="width: 10%;vertical-align: top">
+           <br>
+            <button class="btn btn-default" type="submit">Cтворити</button>
+        </div>
+
+    </form>
+</div>
+<div class="table_scroll">
+    <table class="table" id="info-table">
+        <tr>
+            <th scope="col">Номер накладної</th>
+            <th scope="col">Постачальник</th>
+            <th scope="col">Дата замовлення</th>
+            <th scope="col">Сума в грн</th>
+            <th scope="col">Дата отримання</th>
+            <th scope="col">Контактна особа</th>
+            <th scope="col">Телефон</th>
+            <th scope="col">Примітка</th>
+            <th scope="col">Статус</th>
+
+        </tr>
+        {% if orders %}
+        {% for order in orders %}
+        <tr>
+            <form action={% url "orders:s_upd"  order.id %} method='POST'>
+                {% csrf_token %}
+                <td scope="row"><input type="text" readonly class="input_table" value="{{ order.order_number }}" name="order_number"></td>
+                <td><select class="form-select" style="width:150px" name="supplier_id">
+                        {% if suppliers %}
+                        {% for st in suppliers %}
+                        {% if order.supplier.name == st.name %}
+                        <option selected value="{{st.id}}">{{st.name}}</option>
+                        {% else %}
+                        <option value="{{st.id}}">{{st.name}}</option>
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </select></td>
+                <td>
+                    <input type="date" class="input_table" value="{{ order.order_date|date:'Y-m-d' }}" name="order_date">
+                </td>
+                <td><input style="display: inline-block;" type="text" class="input_table" value="{{ order.price}}" name="price"></td>
+                <td>
+                    <input type="date" class="input_table" value="{{ order.complete_date|date:'Y-m-d' }}" name="complete_date">
+                </td>
+                <td><a href="{% url 'orders:sup' order.supplier_id %} ">{{ order.get_contact }}</a></td>   
+                <td><input type="text" class="input_table" value="{{ order.phone }}" name="phone"></td>
+                <td><input type="text" class="input_table" value="{{ order.mark }}" name="mark"></td>
+
+                <td><select class="form-select" style="width:150px" name="status">
+                        {% if status %}
+                        {% for st in status %}
+                        {% if order.status == st.name %}
+                        <option selected value="{{st.name}}">{{st.value}}</option>
+                        {% else %}
+                        <option value="{{st.name}}">{{st.value}}</option>
+                        {% endif %}
+                        {% endfor %}
+                        {% endif %}
+                    </select></td>
+                <td>
+                    <button type="submit" class="table_icon"><img src="{% static 'images/icons/pen.png' %}" alt=""></button>
+                    <button type="button" class="table_icon"><a href="{% url 'orders:s_arc' order.id %}"><img src="{% static 'images/icons/archive.png' %}" alt=""></a></button>
+                    <button type="button" class="table_icon"><a href="{% url 'orders:s_del' order.id %}"><img src="{% static 'images/icons/trash.png' %}" alt=""></a></button>
+                </td>
+            </form>
+
+
+        </tr>
+        {% endfor %}
+        {% endif %}
+
+
+    </table>
+</div>
+<!--
+<form action="{% url 'accstairs:excel'%}">
+    <button class="btn btn-outline-success">Export to Excel !</button>
+</form>
+-->
+
+
+
+{% endblock %}

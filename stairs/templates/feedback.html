@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block title %}Интерфейс{% endblock %}
+{% block content %}
+{% load static %}
+
+<form class="obratnuj-zvonok" method='POST'>
+    <div class="form-zvonok">
+        <div class='input-group mb-3 group'>
+            <input type="text" required="" name="username">
+            <span class="bar"></span>
+            <label class="label_input">Им'я</label>
+        </div>
+        <div class='input-group mb-3 group'>
+            <input type="text" required="" name="phone">
+            <span class="bar"></span>
+            <label class="label_input">Номер телефона</label>
+        </div>
+        <div>
+            <label>Повідомлення <span>*</span></label><br>
+            <textarea cols=50 rows=5 name='question'></textarea>
+        </div>
+        <input class="bot-send-mail" type='submit' value='Послати заявку'>
+    </div>
+</form>
+
+{% endblock %}

@@ -1,0 +1,697 @@
+/* Header */
+#head {
+    background: #181015 url(../images/bg_header.jpg) no-repeat;
+    background-size: cover;
+    min-height: 720px;
+    text-align: center;
+    padding-top: 240px;
+    color: white;
+    font-family: "Open sans", Helvetica, Arial;
+    font-weight: 300;
+}
+
+#head.secondary {
+    height: 100px;
+    min-height: 100px;
+    padding-top: 0px;
+    background: #FFFFFF
+}
+
+#head .lead {
+    font-family: "Open sans", Helvetica, Arial;
+    font-size: 44px;
+    margin-bottom: 6px;
+    color: white;
+    line-height: 1.15em;
+}
+
+#head .tagline {
+    color: rgba(255, 255, 255, 0.75);
+    margin-bottom: 25px;
+}
+
+#head .tagline a {
+    color: #fff;
+}
+
+#head .btn {
+    margin-bottom: 10px;
+}
+
+#head .btn-default {
+    text-shadow: none;
+    background: transparent;
+    color: rgba(255, 255, 255, .5);
+    -webkit-box-shadow: inset 0px 0px 0px 3px rgba(255, 255, 255, .5);
+    -moz-box-shadow: inset 0px 0px 0px 3px rgba(255, 255, 255, .5);
+    box-shadow: inset 0px 0px 0px 3px rgba(255, 255, 255, .5);
+    background: transparent;
+}
+
+#head .btn-default:hover,
+#head .btn-default:focus {
+    color: rgba(255, 255, 255, .8);
+    -webkit-box-shadow: inset 0px 0px 0px 3px rgba(255, 255, 255, .8);
+    -moz-box-shadow: inset 0px 0px 0px 3px rgba(255, 255, 255, .8);
+    box-shadow: inset 0px 0px 0px 3px rgba(255, 255, 255, .8);
+    background: transparent;
+}
+
+#head .btn-default:active,
+#head .btn-default.active {
+    color: #fff;
+    -webkit-box-shadow: inset 0px 0px 0px 3px #fff;
+    -moz-box-shadow: inset 0px 0px 0px 3px #fff;
+    box-shadow: inset 0px 0px 0px 3px #ffffff;
+    background: transparent;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    
+    background-image: url(../images/background.png );
+    height: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+table {
+    table-layout: fixed;
+    max-width: 99%;
+    box-sizing: border-box;
+
+}
+.content{
+    padding-left: 7%;
+    padding-right: 7%;
+}
+.input_form {
+    width: 400px;
+    height: 70px;
+    position: relative;
+}
+
+.input_form_child {
+    width: 400px;
+    position: absolute;
+    bottom: 0;
+}
+
+.table_scroll {
+    white-space: nowrap;
+}
+
+.search {
+    width: 30%;
+}
+
+right {
+    right: auto;
+}
+
+@media (max-width: 767px) {
+    #head {
+        min-height: 420px;
+        padding-top: 160px;
+    }
+
+    #head .lead {
+        font-size: 34px;
+    }
+}
+
+.btn-form {
+    vertical-align: bottom;
+}
+
+.form_sum_child {
+    display: inline-block;
+}
+
+.radio_color {
+    font-size: 16px;
+    padding: 10px;
+    display: block;
+    border: none;
+    display: inline-block;
+}
+
+.input_table {
+    background-color: rgba(0, 0, 0, 0);
+    border-bottom: none;
+    max-width: 100%;
+    width: 100%;
+}
+
+.right {
+    text-align: right;
+}
+
+.thumbnail-item {
+    /* position relative so that we can use position absolute for the tooltip */
+    position: relative;
+    float: left;
+    margin: 0px 5px;
+}
+
+.thumbnail-item a {
+    display: block;
+}
+
+.thumbnail-item img.thumbnail {
+    border: 3px solid #ccc;
+}
+
+.tooltip {
+    /* by default, hide it */
+    display: none;
+    /* allow us to move the tooltip */
+    position: absolute;
+    /* align the image properly */
+    padding: 8px 0 0 8px;
+}
+
+.tooltip span.overlay {
+    /* the png image, need ie6 hack though */
+    background: url(images/overlay.png) no-repeat;
+    /* put this overlay on the top of the tooltip image */
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    display: block;
+    width: 350px;
+    height: 200px;
+}
+
+select {
+    display: block;
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: #444;
+    line-height: 1.3;
+    padding: .6em 1.4em .5em .8em;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #aaa;
+    box-shadow: 0 1px 0 1px rgba(0, 0, 0, .04);
+    border-radius: .5em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%23007CB2%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E'), linear-gradient(to bottom, #ffffff 0%, #e5e5e5 100%);
+    background-repeat: no-repeat, repeat;
+    background-position: right .7em top 50%, 0 0;
+    background-size: .65em auto, 100%;
+}
+
+.select-css::-ms-expand {
+    display: none;
+}
+
+.select-css:hover {
+    border-color: #888;
+}
+
+.select-css:focus {
+    border-color: #aaa;
+    box-shadow: 0 0 1px 3px rgba(59, 153, 252, .7);
+    box-shadow: 0 0 0 3px -moz-mac-focusring;
+    color: #222;
+    outline: none;
+}
+
+/* свойства модального окна по умолчанию */
+.modal {
+    position: fixed;
+    /* фиксированное положение */
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.5);
+    /* цвет фона */
+    z-index: 1050;
+    opacity: 0;
+    /* по умолчанию модальное окно прозрачно */
+    -webkit-transition: opacity 400ms ease-in;
+    -moz-transition: opacity 400ms ease-in;
+    transition: opacity 400ms ease-in;
+    /* анимация перехода */
+    pointer-events: none;
+    /* элемент невидим для событий мыши */
+}
+
+/* при отображении модального окно */
+.modal:target {
+    opacity: 1;
+    pointer-events: auto;
+    overflow-y: auto;
+}
+
+/* ширина модального окна и его отступы от экрана */
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        max-width: 500px;
+        margin: 30px auto;
+    }
+}
+
+/* свойства для блока, содержащего контент модального окна */
+.modal-content {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0, 0, 0, .2);
+    border-radius: .3rem;
+    outline: 0;
+}
+
+@media (min-width: 768px) {
+    .modal-content {
+        -webkit-box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, .5);
+    }
+}
+
+/* свойства для заголовка модального окна */
+.modal-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #eceeef;
+}
+
+.modal-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+/* свойства для кнопки "Закрыть" */
+.close {
+    float: right;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+    text-decoration: none;
+}
+
+/* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+.close:focus,
+.close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .75;
+}
+
+/* свойства для блока, содержащего основное содержимое окна */
+.modal-body {
+    position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 15px;
+    overflow: auto;
+}
+
+.select-css option {
+    font-weight: normal;
+}
+
+*[dir="rtl"] .select-css,
+:root:lang(ar) .select-css,
+:root:lang(iw) .select-css {
+    background-position: left .7em top 50%, 0 0;
+    padding: .6em .8em .5em 1.4em;
+}
+
+/* Autohide navbar */
+.slideUp {
+    top: -100px;
+}
+
+.headroom {
+    -webkit-transition: all 0.4s ease-out;
+    -moz-transition: all 0.4s ease-out;
+    -o-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+}
+
+
+/* Highlights (in jumbotron in most cases) */
+.highlight {
+    margin-top: 40px;
+}
+
+.h-caption {
+    text-align: center;
+}
+
+.h-caption i {
+    display: block;
+    font-size: 54px;
+    color: #382526;
+    margin-bottom: 36px;
+}
+
+.h-caption h4 {
+    color: #382526;
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 20px;
+}
+
+.h-body {}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Roboto', sans-serif, Helvetica, Arial;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+    margin-top: 30px;
+}
+
+blockquote {
+    font-style: italic;
+    font-family: Georgia;
+    color: #999;
+    margin: 30px 0 30px;
+}
+
+label {
+    color: #777;
+}
+
+.thin {
+    font-weight: 300;
+}
+
+.page-title {
+    margin-top: 20px;
+    font-weight: 300;
+}
+
+.text-muted {
+    color: #888;
+}
+
+.breadcrumb {
+    background: none;
+    padding: 0;
+    margin: 30px 0 0px 0;
+}
+
+ul.list-spaces li {
+    margin-bottom: 10px;
+}
+
+.group {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+/* Helpers */
+.container-full {
+    margin: 0 auto;
+    width: 100%;
+}
+
+.top-space {
+    margin-top: 60px;
+}
+
+.top-margin {
+    margin-top: 20px;
+}
+
+img {
+    max-width: 100%;
+}
+
+img.pull-right {
+    margin-left: 10px;
+}
+
+img.pull-left {
+    margin-right: 10px;
+}
+
+#map {
+    width: 100%;
+    height: 280px;
+}
+
+#social {
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#social .wrapper {
+    width: 340px;
+    margin: 0 auto;
+}
+
+/* Main content block */
+.table_icon {
+    width: 40px;
+    height: 40px;
+}
+
+.maincontent {}
+
+.label_input {
+    color: #999;
+    font-size: 18px;
+    position: absolute;
+    pointer-events: none;
+    left: 10px;
+    top: 15px;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label,
+input:valid ~ label {
+    top: -15px;
+    font-size: 14px;
+    color: #5264AE;
+}
+
+
+/* BOTTOM BARS ================================= */
+.bar {
+    position: relative;
+    display: block;
+}
+
+.bar:before,
+.bar:after {
+    content: "";
+    height: 2px;
+    width: 0;
+    bottom: 0;
+    position: absolute;
+    background: #5264AE;
+    transition: 0.2s ease all;
+    -moz-transition: 0.2s ease all;
+    -webkit-transition: 0.2s ease all;
+}
+
+.bar:before {
+    left: 50%;
+}
+
+.bar:after {
+    right: 50%;
+}
+
+/* active state */
+input:focus ~ .bar:before,
+input:focus ~ .bar:after {
+    width: 50%;
+}
+
+input {
+    font-size: 16px;
+    padding: 10px;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #ccc;
+}
+
+input:focus {
+    outline: none;
+}
+
+input[type="color"] {
+    -webkit-appearance: none;
+    border: none;
+    width: 64px;
+    height: 64px;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+    padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+    border: none;
+}
+
+/* Sidebars */
+.sidebar {
+    padding-top: 36px;
+    padding-bottom: 30px;
+}
+
+.sidebar .widget {
+    margin-bottom: 20px;
+}
+
+.sidebar h1,
+.sidebar .h1,
+.sidebar h2,
+.sidebar .h2,
+.sidebar h3,
+.sidebar .h3 {
+    margin-top: 20px;
+}
+
+/* Footer */
+.footer1 {
+    background: #232323;
+    padding: 30px 0 0 0;
+    font-size: 12px;
+    color: #999;
+}
+
+.footer1 a {
+    color: #ccc;
+}
+
+.footer1 a:hover {
+    color: #fff;
+}
+
+.footer1 .widget {
+    margin-bottom: 30px;
+}
+
+.footer1 .widget-title {
+    font-size: 17px;
+    font-weight: bold;
+    color: #ccc;
+    margin: 0 0 20px;
+}
+
+.footer1 .entry-meta {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    margin: 0 0 35px 0;
+    padding: 2px 0;
+    color: #888888;
+    font-size: 12px;
+    font-size: 0.75rem;
+}
+
+.footer1 .entry-meta a {
+    color: #333333;
+}
+
+.footer1 .entry-meta .meta-in {
+    border-top: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    padding: 10px 0;
+}
+
+.follow-me-icons {
+    font-size: 30px;
+}
+
+.follow-me-icons i {
+    float: left;
+    margin: 0 10px 0 0;
+}
+
+.footer2 {
+    background: #191919;
+    padding: 15px 0;
+    color: #777;
+    font-size: 12px;
+}
+
+.footer2 a {
+    color: #aaa;
+}
+
+.footer2 a:hover {
+    color: #fff;
+}
+
+.footer2 p {
+    margin: 0;
+}
+
+.widget-simplenav {
+    margin-left: -5px;
+}
+
+.widget-simplenav a {
+    margin: 0 5px;
+}

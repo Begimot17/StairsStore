@@ -1,0 +1,133 @@
+{% extends 'base.html' %}
+{% block title %}Интерфейс{% endblock %}
+{% block content %}
+{% load static %}
+
+
+<h1>Облік постачальників <button class="btn btn-default">Додати</button>
+</h1>
+
+<div class="div1">
+    <form action={% url 'accsuppliers:add' %} method='POST'>
+        {% csrf_token %}
+        <div style="width: 15%" class="form_sum_child">
+            <div  class='input-group mb-3 group'>
+                <input style="width: 100%" type="text" required="" name="name">
+                <span class="bar"></span>
+                <label class="label_input">Назва організації</label>
+            </div>
+        </div>
+        <div style="width: 15%" class="form_sum_child">
+            <label>Категорія:</label>
+            <select class="form-select"  name="category" id="cars">
+                <option value="Крепёж">Крепёж</option>
+                <option value="Краска">Краска</option>
+                <option value="Дерево">Дерево</option>
+            </select>
+        </div>
+        <div style="width: 15%" class="form_sum_child">
+            <label>Матеріал:</label>
+            <select class="form-select" required="" name="material" id="cars">
+                <option value="Дерево">Дерево</option>
+                <option value="Краска">Краска</option>
+                <option value="Обработка">Обработка</option>
+                <option value="Саморезы">Саморезы</option>
+                <option value="Клей">Клей</option>
+            </select>
+        </div>
+        <div style="width: 15%" class="form_sum_child">
+            <div  class='input-group mb-3 group'>
+                <input style="width: 100%" type="text" required="" name="last_name">
+                <span class="bar"></span>
+                <label class="label_input">Прізвіще</label>
+            </div>
+        </div>
+        <div style="width: 15%" class="form_sum_child">
+            <div  class='input-group mb-3 group'>
+                <input style="width: 100%" type="text" required="" name="first_name">
+                <span class="bar"></span>
+                <label class="label_input">Ім'я</label>
+            </div>
+
+        </div>
+        <br>
+        <div style="width: 15%" class="form_sum_child">
+            <div class='input-group mb-3 group'>
+                <input style="width: 100%" type="text" required="" name="next_name">
+                <span class="bar"></span>
+                <label class="label_input">По батькові</label>
+            </div>
+        </div>
+        <div style="width: 15%" class="form_sum_child">
+            <div class='input-group mb-3 group'>
+                <input style="width: 100%" type="email" required="" name="email">
+                <span class="bar"></span>
+                <label class="label_input">Email</label>
+            </div>
+        </div>
+        <div style="width: 15%" class="form_sum_child">
+            <div class='input-group mb-3 group'>
+                <input style="width: 100%" type="text" required="" name="phone">
+                <span class="bar"></span>
+                <label class="label_input">Телефон</label>
+            </div>
+        </div>
+        <div style="width: 15%" class="form_sum_child">
+
+            <div class='input-group mb-3 group'>
+                <input style="width: 100%" type="text" required="" name="address">
+                <span class="bar"></span>
+                <label class="label_input">Адреса</label>
+            </div>
+        </div>
+        
+        <button class="btn btn-light" type="submit">Cтворити</button>
+    </form>
+</div>
+<div class="table_scroll">
+    <table class="table " id="info-table">
+        <tr>
+            <th scope="col">Постачальник</th>
+            <th scope="col">Категорія</th>
+            <th scope="col">Матеріал</th>
+            <th scope="col">Прізвище</th>
+            <th style="width: 7%"scope="col">Ім'я</th>
+            <th scope="col">По батькові</th>
+            <th style="width: 12%" scope="col">Email</th>
+            <th scope="col">Телефон</th>
+            <th style="width: 19%" scope="col">Адреса</th>
+
+
+        </tr>
+        {% if suppliers %}
+        {% for supplier in suppliers %}
+        {% if not supplier.archive %}
+        <tr>
+            <form action={% url 'accsuppliers:update' supplier.id %} method='POST'>
+                {% csrf_token %}
+                <td scope="row" name="name"><input type="text" class="input_table" value="{{ supplier.name }}" name="name"></td>
+                <td name="category"><input type="text" class="input_table" value="{{ supplier.category }}" name="category"></td>
+                <td name="material"><input type="text" class="input_table" value="{{ supplier.material }}" name="material"></td>
+                <td name="last_name"><input type="text" class="input_table" value="{{ supplier.last_name }}" name="last_name"></td>
+                <td name="first_name"><input type="text" class="input_table" value="{{ supplier.first_name }}" name="first_name"></td>
+                <td name="next_name"><input type="text" class="input_table" value="{{ supplier.next_name }}" name="next_name"></td>
+                <td name="email"><input style="width: 100%" type="text" class="input_table" value="{{ supplier.email }}" name="email"></td>
+                <td name="phone"><input type="text" class="input_table" value="{{ supplier.phone }}" name="phone"></td>
+                <td name="address"><input type="text" class="input_table" value="{{ supplier.address }}" name="address"></td>
+                <td>
+                    <button type="submit" class="table_icon"><img src="{% static 'images/icons/pen.png' %}" alt=""></button>
+                    <button type="button" class="table_icon"><a href="{% url 'accsuppliers:archive' supplier.id %} "><img src="{% static 'images/icons/archive.png' %}" alt=""></a></button>
+                    <button type="button" class="table_icon"><a href="{% url 'accsuppliers:delete' supplier.id %} "><img src="{% static 'images/icons/trash.png' %}" alt=""></a></button>
+                </td>
+            </form>
+
+        </tr>
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+    </table>
+</div>
+<form action="{% url 'accsuppliers:excel'%}">
+    <button class="btn btn-outline-success">Export to Excel !</button>
+</form>
+{% endblock %}
