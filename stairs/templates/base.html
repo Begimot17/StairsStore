@@ -1,281 +1,200 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        {% load static %}
+        <meta charset="utf-8">
+        <title>Лестницы для дома</title>
+        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        
 
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="author" content="Dyachkov Nikita">
+        <!-- Favicon -->
+        <link href="{% static 'img/icon.png'%}" rel="icon">
 
-    <title>Диплом Дьячкова Никиты</title>
-    {% load static %}
-    <link href="{% static 'css/bootstrap.css' %}" rel="stylesheet">
-    <link href="{% static 'images/gt_favicon.png' %}" rel="shortcut icon">
-    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
-    <link href="{% static 'css/bootstrap-theme.css' %}" rel="stylesheet">
-    <link href="{% static 'css/main.css' %}" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,700,800&display=swap" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-	<script src="{% static 'js/html5shiv.js' %}"></script>
-	<script src="{% static 'js/respond.min.js' %}"></script>
-	<![endif]-->
-</head>
+        <!-- Google Font -->
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-<body class="home">
-    <!-- Fixed navbar -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-            <div class="container-fluid" style="padding-left: 7%; padding-right: 7%">
-                <a class="navbar-brand" href="#">Stairs UA</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href={% url 'accounts:index' %}>Головна</a></li>
-                        <!--
-                        <li class="nav-item"><a class="nav-link" href={% url 'accounts:calculator' %}>Конструктор</a></li>
-                        <li class="nav-item"><a class="nav-link" href={% url 'accounts:gallery' %}>Галерея</a></li>
--->
-                        {% if user.is_superuser %}
-                        <!--                        <li class="nav-item"><a class="nav-link" class='dropdown-item' href='/admin/'><i class="fas fa-users-cog"></i> Админ-панель</a></li>-->
-                        <!--
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Функціонал
-                            </a>
-                            <ul class="dropdown-menu">
--->
-                        <li class="nav-item"><a class="nav-link" href={% url 'accstairs:index' %}>Стандартні варіанти</a></li>
-                        <li class="nav-item"><a class="nav-link" href={% url 'accclients:index' %}>Клієнти</a></li>
-                        <li class="nav-item"><a class="nav-link" href={% url 'accsuppliers:index' %}>Постачальники</a></li>
-                        <li class="nav-item"><a class="nav-link" href={% url 'conorders:index' %}>Планування</a>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Замовлення
-                            </a>
-                            <ul class="dropdown-menu">
-                                <li class="dropdown-item"><a style="font-size: 20px" href={% url 'orders:clients' %}>Замовлення кліентів</a></li>
-                                <li class="dropdown-item"><a style="font-size: 20px" href={% url 'orders:suppliers' %}>Замовлення для постачальників</a></li>
-                            </ul>
-                        </li>
-                        <li class="nav-item"><a class="nav-link" href={% url 'analysprofits:index' %}>Аналіз</a></li>
+        <!-- CSS Libraries -->
+        <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+        <link href="{% static 'lib/flaticon/font/flaticon.css'%}" rel="stylesheet"> 
+        <link href="{% static 'lib/animate/animate.min.css'%}" rel="stylesheet">
+        <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css'%}" rel="stylesheet">
+        <link href="{% static 'lib/lightbox/css/lightbox.min.css'%}" rel="stylesheet">
+        <link href="{% static 'lib/slick/slick.css'%}" rel="stylesheet">
+        <link href="{% static 'lib/slick/slick-theme.css'%}" rel="stylesheet">
 
-                        <!--
-                            </ul>
-                        </li>
--->
-                        {% else %}
-                        {% if user.is_authenticated %}
-                        <li class="nav-item"><a class="nav-link" href={% url 'conorders:client' name=user.username %}>Планування</a></li>
-                        <li class="nav-item"><a class="nav-link" href={% url 'orders:client' name=user.username %}>Замовлення</a></li>
-                        {% else %}
-                        {% endif %} {% endif %}
+        <!-- Template Stylesheet -->
+        <link href="{% static 'css/style.css'%}" rel="stylesheet">
+    </head>
 
-                        {% if user.is_authenticated %}
-
-                        <li class="nav-item dropdown">
-                            <a  class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                {{ user.username }}
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                <li><a style="font-size: 20px">Повідомлення</a></li>
-                                <li class="dropdown-item"><a style="font-size: 20px" href={% url 'authorize:log_out' %}>Вийти</a></li>
-                            </ul>
-
-                            {% else %}
-                        <li><a class="nav-link" href={% url 'authorize:signin' %}>Увійти / Зарєєструватись</a></li>
-                        {% endif %}
-                    </ul>
-                    <form class="d-flex">
-                        <input class="form-control me-2" type="search" placeholder="Пошук по сайту" id="search-text" onkeyup="tableSearch()">
-                    </form>
+    <body>
+        <div class="wrapper">
+            <!-- Top Bar Start -->
+            <div class="top-bar">
+                <div class="container-fluid">
+                    <div class="row align-items-center">
+                        <div class="col-lg-4 col-md-12">
+                            <div class="logo">
+                                <a href={% url 'main:index' %}>
+                                    <h1>Лестницы</h1>
+                                    <!-- <img src="img/logo.jpg" alt="Logo"> -->
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-8 col-md-7 d-none d-lg-block">
+                            <div class="row">
+                                <div class="col-4">
+                                    <div class="top-bar-item">
+                                        <div class="top-bar-icon">
+                                            <i class="flaticon-calendar"></i>
+                                        </div>
+                                        <div class="top-bar-text">
+                                            <h3>Рабочее время</h3>
+                                            <p>Пон - Пят, 8:00 - 21:00</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="top-bar-item">
+                                        <div class="top-bar-icon">
+                                            <i class="flaticon-call"></i>
+                                        </div>
+                                        <div class="top-bar-text">
+                                            <h3>Звонить</h3>
+                                            <p>+38 066 066 54 54</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-4">
+                                    <div class="top-bar-item">
+                                        <div class="top-bar-icon">
+                                            <i class="flaticon-send-mail"></i>
+                                        </div>
+                                        <div class="top-bar-text">
+                                            <h3>Наш Email</h3>
+                                            <p>Vik@gmail.com</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
-    </header>
-    
-    {%block content%}
-    {%endblock%}
-    <footer id="footer" class="top-space">
+            <!-- Top Bar End -->
 
-        <div class="footer1">
-            <div class="container">
-                <div class="row">
+            <!-- Nav Bar Start -->
+            <div class="nav-bar">
+                <div class="container-fluid">
+                    <nav class="navbar navbar-expand-lg bg-dark navbar-dark">
+                        <a href={% url 'main:index' %} class="navbar-brand">MENU</a>
+                        <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
 
-                    <div class="col-md-3 widget">
-                        <h3 class="widget-title">Контакти</h3>
-                        <div class="widget-body">
-                            <p>+38 097 761 02 73<br>
-                                <a href="mailto:#">nikitadyachkovchik@gmail.com</a><br>
-                                <br>
-                                Kremenchug street Geroev Bresta 37 room 523
-                            </p>
+                        <div class="collapse navbar-collapse justify-content-between" id="navbarCollapse">
+                            <div class="navbar-nav mr-auto">
+                                <a href={% url 'main:index' %} class="nav-item nav-link active">Главная</a>
+                                <a href={% url 'main:about' %} class="nav-item nav-link">О нас</a>
+                                <a href={% url 'main:calculator' %} class="nav-item nav-link">Калькуляторы летсниц</a>
+                                <a href={% url 'main:team' %} class="nav-item nav-link">Команда</a>
+                                <a href={% url 'main:portfolio' %} class="nav-item nav-link">Наши выполненные заказы</a>
+                            </div>
+                            <div class="ml-auto">
+                                <a class="btn" href={% url 'feedback:index' %}>Оставить заявку</a>
+                            </div>
                         </div>
-                    </div>
-
-                    <div class="col-md-3 widget">
-                        <h3 class="widget-title">Підпишись</h3>
-                        <div class="widget-body">
-                            <p class="follow-me-icons">
-                                <a href=""><i class="fa fa-twitter fa-2"></i></a>
-                                <a href=""><i class="fa fa-dribbble fa-2"></i></a>
-                                <a href=""><i class="fa fa-github fa-2"></i></a>
-                                <a href=""><i class="fa fa-facebook fa-2"></i></a>
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 widget">
-                        <h3 class="widget-title">Опис</h3>
-                        <div class="widget-body">
-                            <p>Дерево є найпоширенішим матеріалом для виготовлення сходів на другий поверх в приватних будинках, котеджах, дворівневих квартирах, на дачах. За рахунок різноманітності конструкцій, використання різних видів деревини, особливостей обробки і неповторної натуральної фактури дерева кожна така сходинка індивідуальна і здатна перетворити інтер’єр приміщення. </p>
-                        </div>
-                    </div>
-
-                </div> <!-- /row of widgets -->
+                    </nav>
+                </div>
             </div>
+            <!-- Nav Bar End -->
+            {%block content%}
+            {%endblock%}
+            <!-- Footer Start -->
+            <div class="footer wow fadeIn" data-wow-delay="0.3s">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-6 col-lg-3">
+                            <div class="footer-contact">
+                                <h2>Контакты</h2>
+                                <p><i class="fa fa-map-marker-alt"></i>ул Степная 44, с Максимовка, Полтавская обл</p>
+                                <p><i class="fa fa-phone-alt"></i>+38 066 066 54 54</p>
+                                <p><i class="fa fa-envelope"></i>Vik@gmail.com</p>
+                                <div class="footer-social">
+                                    <a href=""><i class="fab fa-twitter"></i></a>
+                                    <a href=""><i class="fab fa-facebook-f"></i></a>
+                                    <a href=""><i class="fab fa-youtube"></i></a>
+                                    <a href=""><i class="fab fa-instagram"></i></a>
+                                    <a href=""><i class="fab fa-linkedin-in"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="footer-link">
+                                <h2>Области услуг</h2>
+                                <a href="">Замеры</a>
+                                <a href="">Шлифовка</a>
+                                <a href="">Сборка лестницы</a>
+                                <a href="">Покраска</a>
+                                <a href="">Обработка</a>
+                                <a href="">Доставка</a>
+                                <a href="">Установка</a>
+                            </div>
+                        </div>
+                        <div class="col-md-6 col-lg-3">
+                            <div class="footer-link">
+                                <h2>Полезные страницы</h2>
+                                <a href="">О нас</a>
+                                <a href="">Калькуляторы летсниц</a>
+                                <a href="">Контакты</a>
+                                <a href="">Команда</a>
+                                <a href="">Наши выполненные заказы</a>
+                            </div>
+                        </div>
+                        <!-- <div class="col-md-6 col-lg-3">
+                            <div class="newsletter">
+                                <h2>Обратная связь</h2>
+                                <p>
+                                    Оставьте свой мобильный номер и с вами свяжуться
+                                </p>
+                                <div class="form">
+                                    <input class="form-control" placeholder="Введите номер">
+                                    <button class="btn">Отправить</button>
+                                </div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="container copyright">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <p>&copy; <a href="#">StairsComp</a>, Все права защищены.</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p>Designed By <a href="">Nikita Dyachkov</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Footer End -->
+
+            <a href="#" class="back-to-top"><i class="fa fa-chevron-up"></i></a>
         </div>
 
-        <div class="footer2">
-            <div class="container">
-                <div class="row">
+        <!-- JavaScript Libraries -->
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'lib/easing/easing.min.js'%}"></script>
+        <script src="{% static 'lib/wow/wow.min.js'%}"></script>
+        <script src="{% static 'lib/owlcarousel/owl.carousel.min.js'%}"></script>
+        <script src="{% static 'lib/isotope/isotope.pkgd.min.js'%}"></script>
+        <script src="{% static 'lib/lightbox/js/lightbox.min.js'%}"></script>
+        <script src="{% static 'lib/waypoints/waypoints.min.js'%}"></script>
+        <script src="{% static 'lib/counterup/counterup.min.js'%}"></script>
+        <script src="{% static 'lib/slick/slick.min.js'%}"></script>
 
-                    <div class="col-md-6 widget">
-                        <div class="widget-body">
-                            <p class="simplenav">
-                                <a href={% url 'accounts:index' %}>Головна</a> |
-                                <a href={% url 'accounts:about' %}>Про компанію</a> |
-                                <a href={% url 'accounts:gallery' %}>Галерея</a> |
-                                <a href={% url 'accounts:feedback' %}>Зворотний зв'язок</a> |
-                            </p>
-                        </div>
-                    </div>
-
-                    <div class="col-md-6 widget">
-                        <div class="widget-body">
-                            <p class="text-right">
-                                Copyright &copy; 2021, Nikita Dyachkov
-                            </p>
-                        </div>
-                    </div>
-
-                </div> <!-- /row of widgets -->
-            </div>
-        </div>
-
-    </footer>
-
-
-    <!-- JavaScript libs are placed at the end of the document so the pages load faster -->
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
-    <script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="{% static 'js/headroom.min.js' %}"></script>
-    <script src="{% static 'js/jQuery.headroom.min.js' %}"></script>
-    <script src="{% static 'js/template.js' %}"></script>
-    <script src="{% static 'js/SmoothScroll.js' %}"></script>
-</body>
-<script>
-    (function(i, s, o, g, r, a, m) {
-        i['GoogleAnalyticsObject'] = r;
-        i[r] = i[r] || function() {
-            (i[r].q = i[r].q || []).push(arguments)
-        }, i[r].l = 1 * new Date();
-        a = s.createElement(o),
-            m = s.getElementsByTagName(o)[0];
-        a.async = 1;
-        a.src = g;
-        m.parentNode.insertBefore(a, m)
-    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-
-    ga('create', 'UA-1057679-2', 'auto');
-    ga('send', 'pageview');
-
-</script>
-<script>
-    let div = document.querySelector('.div1');
-    div.style.display = 'none'
-    document.querySelector('.btn').addEventListener('click', () => {
-        div.style.display = getComputedStyle(div).display == 'none' ? 'block' : 'none';
-        document.querySelector('.btn').style.display = 'none'
-    });
-
-</script>
-<script>
-    function tableSearch() {
-        var phrase = document.getElementById('search-text');
-        var table = document.getElementById('info-table');
-        var regPhrase = new RegExp(phrase.value, 'i');
-        var flag = false;
-        for (var i = 1; i < table.rows.length; i++) {
-            flag = false;
-            for (var j = table.rows[i].cells.length - 1; j >= 0; j--) {
-                flag = regPhrase.test(table.rows[i].cells[j].innerHTML);
-                if (flag) break;
-            }
-            if (flag) {
-                table.rows[i].style.display = "";
-            } else {
-                table.rows[i].style.display = "none";
-            }
-
-        }
-    }
-
-</script>
-<script>
-    $(document).ready(function() {
-
-                // Get all the thumbnail
-                $('div.thumbnail-item').mouseenter(function(e) {
-
-                            // Calculate the position of the image tooltip
-                            x = e.pageX - $(this).offset().left;
-                            y = e.pageY - $(this).offset().top;
-
-                            // Set the z-index of the current item,
-                            // make sure it's greater than the rest of thumbnail items
-
-</script>
-<script>
-    function getRandomIntInclusive(min, max) {
-        min = Math.ceil(min);
-        max = Math.floor(max);
-        return Math.floor(Math.random() * (max - min + 1)) + min;
-    }
-
-    function sum() {
-        price = getRandomIntInclusive(150000, 500000);
-        document.getElementById("sum").innerHTML = price.toLocaleString('ru') + " ГРН";
-        document.getElementById("input_sum").value = price;
-        document.getElementById("order").style.visibility = "visible";
-    }
-
-</script>
-<script>
-    $(document).ready(function() {
-        $('#variant-select').on('change', function() {
-            var url = $(this).find(':selected').data('price');
-            $('#photo-big').attr('src', url);
-        });
-    })
-
-</script>
-<!--
-<script>
-    let student = {
-        name: 'John',
-        age: 30,
-        isAdmin: false,
-        courses: ['html', 'css', 'js'],
-        wife: null
-    };
-
-</script>
--->
-
+        <!-- Template Javascript -->
+        <script src="{% static 'js/main.js'%}"></script>
+    </body>
 </html>
+

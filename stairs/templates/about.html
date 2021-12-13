@@ -2,21 +2,228 @@
 {% block title %}Интерфейс{% endblock %}
 {% block content %}
 {% load static %}
-<div class="container">
-    <div class="row">
-        <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            <p>Дерево є найпоширенішим матеріалом для виготовлення сходів на другий поверх в приватних будинках, котеджах, дворівневих квартирах, на дачах. За рахунок різноманітності конструкцій, використання різних видів деревини, особливостей обробки і неповторної натуральної фактури дерева кожна така сходинка індивідуальна і здатна перетворити </p>
-            <p>Ведення бізнесу та розвиток у різних напрямках дозволив, як виробництву, сформувати автентичний світогляд, створити й наслідувати власну філософію.</p>
-            <p>• Досвід і професіоналізм об’єднуючи вікові традиції та сучасні технології, вони ефективно використовують досвід поколінь в обробці деревини та професіоналізм кожного працівника для отримання найкращого результату.</p>
-            <p>• Відповідальність контролюючи якість на кожній ланці виробництва, вони несуть відповідальність і стверджуємося у впевненості, що їх праця не марна.</p>
-            <p>• Індивідуальний підхід дозволяє їм з розумінням справи відповідати пропозицією на попит їх покупців, що в свою чергу дає їм можливість ставати кращими та відкривати нові горизонти.</p>
-            <p>• Натуральність для створення нового і досконалого іноді достатньо звернутися до природи. Натуральність та екологічність їх продукції є обов’язковою передумовою всіх наших починань і звершень.
-            </p>
-
+<!-- About Start -->
+<div class="about wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5 col-md-6">
+                <div class="about-img">
+                    <img src="{% static 'img/about.jpg'%}" alt="Image">
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-6">
+                <div class="section-header text-left">
+                    <p>Давайте знакомиться</p>
+                    <h2>Мы на рынке уже 6 лет</h2>
+                </div>
+                <div class="about-text">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem.
+                    </p>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non vulputate. Aliquam metus tortor, auctor id gravida condimentum, viverra quis sem. Curabitur non nisl nec nisi scelerisque maximus. Aenean consectetur convallis porttitor. Aliquam interdum at lacus non blandit.
+                    </p>
+                    <a class="btn" href="">Learn More</a>
+                </div>
+            </div>
         </div>
     </div>
 </div>
+<!-- About End -->
 
-<hr>
 
+<!-- Fact Start -->
+<div class="fact">
+    <div class="container-fluid">
+        <div class="row counters">
+            <div class="col-md-6 fact-left wow slideInLeft">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="fact-icon">
+                            <i class="flaticon-worker"></i>
+                        </div>
+                        <div class="fact-text">
+                            <h2 data-toggle="counter-up">5</h2>
+                            <p>Штаб рабочих</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="fact-icon">
+                            <i class="flaticon-building"></i>
+                        </div>
+                        <div class="fact-text">
+                            <h2 data-toggle="counter-up">485</h2>
+                            <p>Счастливые клиенты</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 fact-right wow slideInRight">
+                <div class="row">
+                    <div class="col-6">
+                        <div class="fact-icon">
+                            <i class="flaticon-address"></i>
+                        </div>
+                        <div class="fact-text">
+                            <h2 data-toggle="counter-up">789</h2>
+                            <p>Выполненных проектов</p>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="fact-icon">
+                            <i class="flaticon-crane"></i>
+                        </div>
+                        <div class="fact-text">
+                            <h2 data-toggle="counter-up">890</h2>
+                            <p>Проекты в процессе</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Fact End -->
+
+
+<!-- FAQs Start -->
+<div class="faqs">
+    <div class="container">
+        <div class="section-header text-center">
+            <p>Часто задаваемые вопросы</p>
+            <h2>Спросите нас</h2>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div id="accordion-1">
+                    <div class="card wow fadeInLeft" data-wow-delay="0.1s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseOne">
+                                Lorem ipsum dolor sit amet?
+                            </a>
+                        </div>
+                        <div id="collapseOne" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.2s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseTwo">
+                                Lorem ipsum dolor sit amet?
+                            </a>
+                        </div>
+                        <div id="collapseTwo" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.3s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseThree">
+                                Lorem ipsum dolor sit amet?
+                            </a>
+                        </div>
+                        <div id="collapseThree" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.4s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseFour">
+                                Lorem ipsum dolor sit amet?
+                            </a>
+                        </div>
+                        <div id="collapseFour" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInLeft" data-wow-delay="0.5s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseFive">
+                                Lorem ipsum dolor sit amet?
+                            </a>
+                        </div>
+                        <div id="collapseFive" class="collapse" data-parent="#accordion-1">
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div id="accordion-2">
+                    <div class="card wow fadeInRight" data-wow-delay="0.1s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseSix">
+                                Lorem ipsum dolor sit amet?
+                            </a>
+                        </div>
+                        <div id="collapseSix" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.2s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseSeven">
+                                Lorem ipsum dolor sit amet?
+                            </a>
+                        </div>
+                        <div id="collapseSeven" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.3s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseEight">
+                                Lorem ipsum dolor sit amet?
+                            </a>
+                        </div>
+                        <div id="collapseEight" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.4s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseNine">
+                                Lorem ipsum dolor sit amet?
+                            </a>
+                        </div>
+                        <div id="collapseNine" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="card wow fadeInRight" data-wow-delay="0.5s">
+                        <div class="card-header">
+                            <a class="card-link collapsed" data-toggle="collapse" href="#collapseTen">
+                                Lorem ipsum dolor sit amet?
+                            </a>
+                        </div>
+                        <div id="collapseTen" class="collapse" data-parent="#accordion-2">
+                            <div class="card-body">
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus nec pretium mi. Curabitur facilisis ornare velit non.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- FAQs End -->
 {% endblock %}

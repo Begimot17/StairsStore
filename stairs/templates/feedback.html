@@ -1,26 +1,88 @@
 {% extends 'base.html' %}
-{% block title %}Интерфейс{% endblock %}
+{% block title %}Feedback{% endblock %}
 {% block content %}
 {% load static %}
 
-<form class="obratnuj-zvonok" method='POST'>
-    <div class="form-zvonok">
-        <div class='input-group mb-3 group'>
-            <input type="text" required="" name="username">
-            <span class="bar"></span>
-            <label class="label_input">Им'я</label>
+    <!-- Page Header Start -->
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>Оставить заявку</h2>
+                </div>
+                <div class="col-12">
+                    <a href="">Главная</a>
+                    <a href="">Оставить заявку</a>
+                </div>
+            </div>
         </div>
-        <div class='input-group mb-3 group'>
-            <input type="text" required="" name="phone">
-            <span class="bar"></span>
-            <label class="label_input">Номер телефона</label>
-        </div>
-        <div>
-            <label>Повідомлення <span>*</span></label><br>
-            <textarea cols=50 rows=5 name='question'></textarea>
-        </div>
-        <input class="bot-send-mail" type='submit' value='Послати заявку'>
     </div>
-</form>
+    <!-- Page Header End -->
+
+
+    <!-- Contact Start -->
+    <div class="contact wow fadeInUp">
+        <div class="container">
+            <div class="section-header text-center">
+                <p>Оставьте свою заявку</p>
+                <h2>С вами свяжуться</h2>
+            </div>
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="flaticon-address"></i>
+                            <div class="contact-text">
+                                <h2>Офис</h2>
+                                <p>ул Степная 44, с Максимовка, Полтавская обл</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="flaticon-call"></i>
+                            <div class="contact-text">
+                                <h2>Номер телефона</h2>
+                                <p>+38 066 066 54 54</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <i class="flaticon-send-mail"></i>
+                            <div class="contact-text">
+                                <h2>Email</h2>
+                                <p>vik@gmail.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="contact-form">
+                        <div id="success"></div>
+                        <form name="sentMessage" id="contactForm" novalidate="novalidate" action={% url 'feedback:insert' %} method='POST'>
+                                                            {% csrf_token %}
+                            <div class="control-group">
+                                <input type="text" class="form-control" name="name" placeholder="Ваше ФИО" required data-validation-required-message="Введите своё ФИО" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" class="form-control" name="phone" placeholder="Ваш номер" required data-validation-required-message="Введите свой номер телефона" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <input type="text" class="form-control" name="address" placeholder="Ваш город" required data-validation-required-message="Введите город ва котором живёте" />
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div class="control-group">
+                                <textarea class="form-control" name="message" placeholder="О заказе" required data-validation-required-message="Опишите свой заказ"></textarea>
+                                <p class="help-block text-danger"></p>
+                            </div>
+                            <div>
+                                <button class="btn" type="submit" name="sendMessageButton">Отправить заявку</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Contact End -->
 
 {% endblock %}
