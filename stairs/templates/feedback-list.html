@@ -28,6 +28,7 @@
                 <th scope="col">Отправлено</th>
                 <th scope="col">Статус</th>
                 <th scope="col">Сообщение</th>
+                <th scope="col">Управление</th>
             </tr>
             </thead>
             <tbody>
@@ -55,9 +56,7 @@
                         <td class="td-buttons">
                             <button type="submit" class="table_icon"><img width="15" src="{% static 'img/icons/pen.png' %}"
                                                                           alt=""></button>
-                            <button type="button" class="table_icon"><a href=""><img width="15"
-                                    src="{% static 'img/icons/archive.png' %}" alt=""></a></button>
-                            <button type="button" class="table_icon"><a href=""><img width="15"
+                            <button type="button" class="table_icon"><a href="{%url "feedback:delete" id=feedback.id%}"><img width="15"
                                     src="{% static 'img/icons/trash.png' %}" alt=""></a></button>
                         </td>
                     </form>

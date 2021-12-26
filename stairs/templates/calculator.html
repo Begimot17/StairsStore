@@ -1,25 +1,119 @@
 {% extends 'base.html' %}
 {% block title %}Интерфейс{% endblock %}
 {% block content %}
-{% load static %}
-<div class="page-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h2>3D конструктор лестниц онлайн</h2>
-            </div>
-            <div class="col-12">
-                <a href="">Главная</a>
-                <a href="">3D конструктор лестниц онлайн</a>
+    {% load static %}
+    <div class="page-header">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <h2>3D конструктор лестниц онлайн</h2>
+                </div>
+                <div class="col-12">
+                    <a href={% url 'main:index' %}>Главная</a>
+                    <a href="">3D конструктор лестниц онлайн</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
-<p>
-<link rel="stylesheet" type="text/css" href="https://perpendicular.pro/widget/css/popup.css" /><link rel="stylesheet" type="text/css" href="https://perpendicular.pro/widget/JS/highslide.css" /><script type="text/javascript" src="https://perpendicular.pro/widget/JS/highslide-full.js"></script><script type="text/javascript">hs.graphicsDir = 'https://perpendicular.pro/widget/JS/graphics';hs.outlineType = 'rounded-white';</script><a href="#" style="cursor: pointer" id="popup__toggle" onclick="if(navigator.userAgent.match(/iPhone|iPad|iPod/i)) { var win = window.open('https://perpendicular.pro/calc/kalkuljator-rascheta-prjamoj-lestnicy?widget=1&referer='+window.location, '_blank');win.focus();}else{window.parent.document.getElementById('popup').style.display='block';} document.getElementById('frame_calc').src='https://perpendicular.pro/calc/kalkuljator-rascheta-prjamoj-lestnicy?widget=1';"><div class="calc" style="width:300px; background-color:#EFEFEF;-moz-border-radius: 5px; -webkit-border-radius:5px; border-radius:5px;"><div style="display: flex;display: -ms-flexbox; display: flex;-ms-flex-direction: row;flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap;   align-items: center;  margin: 0 10px auto; width:300px;  "><div class="reset-this"><img class="reset-this" src="https://perpendicular.pro/wp-content/uploads/2018/05/1-копия-min.png"  style="cursor:pointer;width: 64px; vertical-align: middle;"></div><div style=""><p class="reset-this" align="justify" style="cursor:pointer;color:#000000; font-size: 14px; font-family: 'Arial' ; margin: 21px 5px;">3D Расчет прямой<br />лестницы</p></div></div><div style="clear: both"></div></div></a><div class="popup" id="popup"><a href="#" class="popup__close" onclick="document.getElementById('popup').style.display='none';">X</a><iframe frameborder="0"  width="99%" height="95%"  src="" id="frame_calc"></iframe></div><a href='https://perpendicular.pro/calc/kalkuljator-rascheta-prjamoj-lestnicy?widget=1'></a>
-<link rel="stylesheet" type="text/css" href="https://perpendicular.pro/widget/css/popup.css" /><link rel="stylesheet" type="text/css" href="https://perpendicular.pro/widget/JS/highslide.css" /><script type="text/javascript" src="https://perpendicular.pro/widget/JS/highslide-full.js"></script><script type="text/javascript">hs.graphicsDir = 'https://perpendicular.pro/widget/JS/graphics';hs.outlineType = 'rounded-white';</script><a href="#" style="cursor: pointer" id="popup__toggle" onclick="if(navigator.userAgent.match(/iPhone|iPad|iPod/i)) { var win = window.open('https://perpendicular.pro/de/calc/raschet-lestnitsy-s-povorotom-90-gradusov-onlajn-kalkulyator?widget=1&referer='+window.location, '_blank');win.focus();}else{window.parent.document.getElementById('popup').style.display='block';} document.getElementById('frame_calc').src='https://perpendicular.pro/de/calc/raschet-lestnitsy-s-povorotom-90-gradusov-onlajn-kalkulyator?widget=1';"><div class="calc" style="width:300px; background-color:#EFEFEF;-moz-border-radius: 5px; -webkit-border-radius:5px; border-radius:5px;"><div style="display: flex;display: -ms-flexbox; display: flex;-ms-flex-direction: row;flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap;   align-items: center;  margin: 0 10px auto; width:300px;  "><div class="reset-this"><img class="reset-this" src="https://perpendicular.pro/wp-content/uploads/2018/05/2-копия-min.png"  style="cursor:pointer;width: 64px; vertical-align: middle;"></div><div style=""><p class="reset-this" align="justify" style="cursor:pointer;color:#000000; font-size: 14px; font-family: 'Arial' ; margin: 21px 5px;">3D Расчет лестницы с<br />поворотом на 90<br />градусов       </p></div></div><div style="clear: both"></div></div></a><div class="popup" id="popup"><a href="#" class="popup__close" onclick="document.getElementById('popup').style.display='none';">X</a><iframe frameborder="0"  width="99%" height="95%"  src="" id="frame_calc"></iframe></div><a href='https://perpendicular.pro/de/calc/raschet-lestnitsy-s-povorotom-90-gradusov-onlajn-kalkulyator?widget=1'></a>
-<link rel="stylesheet" type="text/css" href="https://perpendicular.pro/widget/css/popup.css" /><link rel="stylesheet" type="text/css" href="https://perpendicular.pro/widget/JS/highslide.css" /><script type="text/javascript" src="https://perpendicular.pro/widget/JS/highslide-full.js"></script><script type="text/javascript">hs.graphicsDir = 'https://perpendicular.pro/widget/JS/graphics';hs.outlineType = 'rounded-white';</script><a href="#" style="cursor: pointer" id="popup__toggle" onclick="if(navigator.userAgent.match(/iPhone|iPad|iPod/i)) { var win = window.open('https://perpendicular.pro/calc/kalkulyator-rascheta-lestnitsy-s-povorotnymi-stupenyami-na-90?widget=1&referer='+window.location, '_blank');win.focus();}else{window.parent.document.getElementById('popup').style.display='block';} document.getElementById('frame_calc').src='https://perpendicular.pro/calc/kalkulyator-rascheta-lestnitsy-s-povorotnymi-stupenyami-na-90?widget=1';"><div class="calc" style="width:300px; background-color:#EFEFEF;-moz-border-radius: 5px; -webkit-border-radius:5px; border-radius:5px;"><div style="display: flex;display: -ms-flexbox; display: flex;-ms-flex-direction: row;flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap;   align-items: center;  margin: 0 10px auto; width:300px;  "><div class="reset-this"><img class="reset-this" src="https://perpendicular.pro/wp-content/uploads/2018/05/3-копия-min.png"  style="cursor:pointer;width: 64px; vertical-align: middle;"></div><div style=""><p class="reset-this" align="justify" style="cursor:pointer;color:#000000; font-size: 14px; font-family: 'Arial' ; margin: 21px 5px;">3D Расчет лестницы с<br />забежными ступенями с<br />поворотом 90 градусов</p></div></div><div style="clear: both"></div></div></a><div class="popup" id="popup"><a href="#" class="popup__close" onclick="document.getElementById('popup').style.display='none';">X</a><iframe frameborder="0"  width="99%" height="95%"  src="" id="frame_calc"></iframe></div><a href='https://perpendicular.pro/calc/kalkulyator-rascheta-lestnitsy-s-povorotnymi-stupenyami-na-90?widget=1'></a>
-<link rel="stylesheet" type="text/css" href="https://perpendicular.pro/widget/css/popup.css" /><link rel="stylesheet" type="text/css" href="https://perpendicular.pro/widget/JS/highslide.css" /><script type="text/javascript" src="https://perpendicular.pro/widget/JS/highslide-full.js"></script><script type="text/javascript">hs.graphicsDir = 'https://perpendicular.pro/widget/JS/graphics';hs.outlineType = 'rounded-white';</script><a href="#" style="cursor: pointer" id="popup__toggle" onclick="if(navigator.userAgent.match(/iPhone|iPad|iPod/i)) { var win = window.open('https://perpendicular.pro/calc/raschet-lestnitsy-s-povorotom-180-gradusov?widget=1&referer='+window.location, '_blank');win.focus();}else{window.parent.document.getElementById('popup').style.display='block';} document.getElementById('frame_calc').src='https://perpendicular.pro/calc/raschet-lestnitsy-s-povorotom-180-gradusov?widget=1';"><div class="calc" style="width:300px; background-color:#EFEFEF;-moz-border-radius: 5px; -webkit-border-radius:5px; border-radius:5px;"><div style="display: flex;display: -ms-flexbox; display: flex;-ms-flex-direction: row;flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap;   align-items: center;  margin: 0 10px auto; width:300px;  "><div class="reset-this"><img class="reset-this" src="https://perpendicular.pro/wp-content/uploads/2018/05/4-копия-min.png"  style="cursor:pointer;width: 64px; vertical-align: middle;"></div><div style=""><p class="reset-this" align="justify" style="cursor:pointer;color:#000000; font-size: 14px; font-family: 'Arial' ; margin: 21px 5px;">3D Расчет лестницы с<br />поворотом 180 градусов</p></div></div><div style="clear: both"></div></div></a><div class="popup" id="popup"><a href="#" class="popup__close" onclick="document.getElementById('popup').style.display='none';">X</a><iframe frameborder="0"  width="99%" height="95%"  src="" id="frame_calc"></iframe></div><a href='https://perpendicular.pro/calc/raschet-lestnitsy-s-povorotom-180-gradusov?widget=1'></a>
-<link rel="stylesheet" type="text/css" href="https://perpendicular.pro/widget/css/popup.css" /><link rel="stylesheet" type="text/css" href="https://perpendicular.pro/widget/JS/highslide.css" /><script type="text/javascript" src="https://perpendicular.pro/widget/JS/highslide-full.js"></script><script type="text/javascript">hs.graphicsDir = 'https://perpendicular.pro/widget/JS/graphics';hs.outlineType = 'rounded-white';</script><a href="#" style="cursor: pointer" id="popup__toggle" onclick="if(navigator.userAgent.match(/iPhone|iPad|iPod/i)) { var win = window.open('https://perpendicular.pro/calc/kalkulyator-rascheta-lestnitsy-s-povorotnymi-stupenyami-na-180?widget=1&referer='+window.location, '_blank');win.focus();}else{window.parent.document.getElementById('popup').style.display='block';} document.getElementById('frame_calc').src='https://perpendicular.pro/calc/kalkulyator-rascheta-lestnitsy-s-povorotnymi-stupenyami-na-180?widget=1';"><div class="calc" style="width:300px; background-color:#EFEFEF;-moz-border-radius: 5px; -webkit-border-radius:5px; border-radius:5px;"><div style="display: flex;display: -ms-flexbox; display: flex;-ms-flex-direction: row;flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap;   align-items: center;  margin: 0 10px auto; width:300px;  "><div class="reset-this"><img class="reset-this" src="https://perpendicular.pro/wp-content/uploads/2018/05/с-поворотом-на-180-и-поворотными-ступенями-веб-1.png"  style="cursor:pointer;width: 64px; vertical-align: middle;"></div><div style=""><p class="reset-this" align="justify" style="cursor:pointer;color:#000000; font-size: 14px; font-family: 'Arial' ; margin: 21px 5px;">3D Расчет лестницы с<br />забежными ступенями<br />180 градусов</p></div></div><div style="clear: both"></div></div></a><div class="popup" id="popup"><a href="#" class="popup__close" onclick="document.getElementById('popup').style.display='none';">X</a><iframe frameborder="0"  width="99%" height="95%"  src="" id="frame_calc"></iframe></div><a href='https://perpendicular.pro/calc/kalkulyator-rascheta-lestnitsy-s-povorotnymi-stupenyami-na-180?widget=1'></a>
-</p>
+    <p>
+        <a href="#" style="cursor: pointer" id="popup__toggle"
+           onclick="if(navigator.userAgent.match(/iPhone|iPad|iPod/i)) { var win = window.open('https://perpendicular.pro/calc/kalkuljator-rascheta-prjamoj-lestnicy?widget=1&referer='+window.location, '_blank');win.focus();}else{window.parent.document.getElementById('popup').style.display='block';} document.getElementById('frame_calc').src='https://perpendicular.pro/calc/kalkuljator-rascheta-prjamoj-lestnicy?widget=1';">
+            <div class="calc"
+                 style="width:300px; background-color:#EFEFEF;-moz-border-radius: 5px; -webkit-border-radius:5px; border-radius:5px;">
+                <div style="display: flex;display: -ms-flexbox; display: flex;-ms-flex-direction: row;flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap;   align-items: center;  margin: 0 10px auto; width:300px;  ">
+                    <div class="reset-this"><img class="reset-this"
+                                                 src="https://perpendicular.pro/wp-content/uploads/2018/05/1-копия-min.png"
+                                                 style="cursor:pointer;width: 64px; vertical-align: middle;"></div>
+                    <div style=""><p class="reset-this" align="justify"
+                                     style="cursor:pointer;color:#000000; font-size: 14px; font-family: 'Arial' ; margin: 21px 5px;">
+    3D Расчет прямой<br/>лестницы</p></div></div>
+    <div style="clear: both"></div></div></a>
+    <div class="popup" id="popup"><a href="#" class="popup__close"
+                                     onclick="document.getElementById('popup').style.display='none';">X</a>
+        <iframe frameborder="0" width="99%" height="95%" src="" id="frame_calc"></iframe>
+    </div><a href='https://perpendicular.pro/calc/kalkuljator-rascheta-prjamoj-lestnicy?widget=1'></a>
+    <a href="#" style="cursor: pointer" id="popup__toggle"
+       onclick="if(navigator.userAgent.match(/iPhone|iPad|iPod/i)) { var win = window.open('https://perpendicular.pro/de/calc/raschet-lestnitsy-s-povorotom-90-gradusov-onlajn-kalkulyator?widget=1&referer='+window.location, '_blank');win.focus();}else{window.parent.document.getElementById('popup').style.display='block';} document.getElementById('frame_calc').src='https://perpendicular.pro/de/calc/raschet-lestnitsy-s-povorotom-90-gradusov-onlajn-kalkulyator?widget=1';">
+        <div class="calc"
+             style="width:300px; background-color:#EFEFEF;-moz-border-radius: 5px; -webkit-border-radius:5px; border-radius:5px;">
+            <div style="display: flex;display: -ms-flexbox; display: flex;-ms-flex-direction: row;flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap;   align-items: center;  margin: 0 10px auto; width:300px;  ">
+                <div class="reset-this"><img class="reset-this"
+                                             src="https://perpendicular.pro/wp-content/uploads/2018/05/2-копия-min.png"
+                                             style="cursor:pointer;width: 64px; vertical-align: middle;"></div>
+                <div style=""><p class="reset-this" align="justify"
+                                 style="cursor:pointer;color:#000000; font-size: 14px; font-family: 'Arial' ; margin: 21px 5px;">
+                    3D Расчет лестницы с<br/>поворотом на 90<br/>градусов       </p></div>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+    </a>
+    <div class="popup" id="popup"><a href="#" class="popup__close"
+                                     onclick="document.getElementById('popup').style.display='none';">X</a>
+        <iframe frameborder="0" width="99%" height="95%" src="" id="frame_calc"></iframe>
+    </div>
+    <a href='https://perpendicular.pro/de/calc/raschet-lestnitsy-s-povorotom-90-gradusov-onlajn-kalkulyator?widget=1'></a>
+    <a href="#" style="cursor: pointer" id="popup__toggle"
+       onclick="if(navigator.userAgent.match(/iPhone|iPad|iPod/i)) { var win = window.open('https://perpendicular.pro/calc/kalkulyator-rascheta-lestnitsy-s-povorotnymi-stupenyami-na-90?widget=1&referer='+window.location, '_blank');win.focus();}else{window.parent.document.getElementById('popup').style.display='block';} document.getElementById('frame_calc').src='https://perpendicular.pro/calc/kalkulyator-rascheta-lestnitsy-s-povorotnymi-stupenyami-na-90?widget=1';">
+        <div class="calc"
+             style="width:300px; background-color:#EFEFEF;-moz-border-radius: 5px; -webkit-border-radius:5px; border-radius:5px;">
+            <div style="display: flex;display: -ms-flexbox; display: flex;-ms-flex-direction: row;flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap;   align-items: center;  margin: 0 10px auto; width:300px;  ">
+                <div class="reset-this"><img class="reset-this"
+                                             src="https://perpendicular.pro/wp-content/uploads/2018/05/3-копия-min.png"
+                                             style="cursor:pointer;width: 64px; vertical-align: middle;"></div>
+                <div style=""><p class="reset-this" align="justify"
+                                 style="cursor:pointer;color:#000000; font-size: 14px; font-family: 'Arial' ; margin: 21px 5px;">
+                    3D Расчет лестницы с<br/>забежными ступенями с<br/>поворотом 90 градусов</p></div>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+    </a>
+    <div class="popup" id="popup"><a href="#" class="popup__close"
+                                     onclick="document.getElementById('popup').style.display='none';">X</a>
+        <iframe frameborder="0" width="99%" height="95%" src="" id="frame_calc"></iframe>
+    </div>
+    <a href='https://perpendicular.pro/calc/kalkulyator-rascheta-lestnitsy-s-povorotnymi-stupenyami-na-90?widget=1'></a>
+    <a href="#" style="cursor: pointer" id="popup__toggle"
+       onclick="if(navigator.userAgent.match(/iPhone|iPad|iPod/i)) { var win = window.open('https://perpendicular.pro/calc/raschet-lestnitsy-s-povorotom-180-gradusov?widget=1&referer='+window.location, '_blank');win.focus();}else{window.parent.document.getElementById('popup').style.display='block';} document.getElementById('frame_calc').src='https://perpendicular.pro/calc/raschet-lestnitsy-s-povorotom-180-gradusov?widget=1';">
+        <div class="calc"
+             style="width:300px; background-color:#EFEFEF;-moz-border-radius: 5px; -webkit-border-radius:5px; border-radius:5px;">
+            <div style="display: flex;display: -ms-flexbox; display: flex;-ms-flex-direction: row;flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap;   align-items: center;  margin: 0 10px auto; width:300px;  ">
+                <div class="reset-this"><img class="reset-this"
+                                             src="https://perpendicular.pro/wp-content/uploads/2018/05/4-копия-min.png"
+                                             style="cursor:pointer;width: 64px; vertical-align: middle;"></div>
+                <div style=""><p class="reset-this" align="justify"
+                                 style="cursor:pointer;color:#000000; font-size: 14px; font-family: 'Arial' ; margin: 21px 5px;">
+                    3D Расчет лестницы с<br/>поворотом 180 градусов</p></div>
+            </div>
+            <div style="clear: both"></div>
+        </div>
+    </a>
+    <div class="popup" id="popup"><a href="#" class="popup__close"
+                                     onclick="document.getElementById('popup').style.display='none';">X</a>
+        <iframe frameborder="0" width="99%" height="95%" src="" id="frame_calc"></iframe>
+    </div><a href='https://perpendicular.pro/calc/raschet-lestnitsy-s-povorotom-180-gradusov?widget=1'></a>
+    <link rel="stylesheet" type="text/css" href="https://perpendicular.pro/widget/css/popup.css"/>
+    <link rel="stylesheet" type="text/css" href="https://perpendicular.pro/widget/JS/highslide.css"/>
+    <script type="text/javascript" src="https://perpendicular.pro/widget/JS/highslide-full.js"></script>
+    <script type="text/javascript">hs.graphicsDir = 'https://perpendicular.pro/widget/JS/graphics';
+    hs.outlineType = 'rounded-white';</script><a href="#" style="cursor: pointer" id="popup__toggle"
+                                                 onclick="if(navigator.userAgent.match(/iPhone|iPad|iPod/i)) { var win = window.open('https://perpendicular.pro/calc/kalkulyator-rascheta-lestnitsy-s-povorotnymi-stupenyami-na-180?widget=1&referer='+window.location, '_blank');win.focus();}else{window.parent.document.getElementById('popup').style.display='block';} document.getElementById('frame_calc').src='https://perpendicular.pro/calc/kalkulyator-rascheta-lestnitsy-s-povorotnymi-stupenyami-na-180?widget=1';">
+    <div class="calc"
+         style="width:300px; background-color:#EFEFEF;-moz-border-radius: 5px; -webkit-border-radius:5px; border-radius:5px;">
+        <div style="display: flex;display: -ms-flexbox; display: flex;-ms-flex-direction: row;flex-direction: row; -ms-flex-wrap: wrap; flex-wrap: wrap;   align-items: center;  margin: 0 10px auto; width:300px;  ">
+            <div class="reset-this"><img class="reset-this"
+                                         src="https://perpendicular.pro/wp-content/uploads/2018/05/с-поворотом-на-180-и-поворотными-ступенями-веб-1.png"
+                                         style="cursor:pointer;width: 64px; vertical-align: middle;"></div>
+            <div style=""><p class="reset-this" align="justify"
+                             style="cursor:pointer;color:#000000; font-size: 14px; font-family: 'Arial' ; margin: 21px 5px;">
+                3D Расчет лестницы с<br/>забежными ступенями<br/>180 градусов</p></div>
+        </div>
+        <div style="clear: both"></div>
+    </div>
+</a>
+    <div class="popup" id="popup"><a href="#" class="popup__close"
+                                     onclick="document.getElementById('popup').style.display='none';">X</a>
+        <iframe frameborder="0" width="99%" height="95%" src="" id="frame_calc"></iframe>
+    </div>
+    <a href='https://perpendicular.pro/calc/kalkulyator-rascheta-lestnitsy-s-povorotnymi-stupenyami-na-180?widget=1'></a>
+    </p>
 {% endblock %}

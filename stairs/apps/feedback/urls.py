@@ -7,5 +7,6 @@ urlpatterns = [
     path('insert/', views.insert, name='insert'),
     path('select/', views.select, name='select'),
     path('update/<int:id>/', views.update, name='update'),
+    path('delete/<int:id>/', views.delete, name='delete'),
     path('', views.index, name='index'),
 ]

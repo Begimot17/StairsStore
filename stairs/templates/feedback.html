@@ -56,7 +56,7 @@
                 <div class="col-md-6">
                     <div class="contact-form">
                         <div id="success"></div>
-                        <form name="sentMessage" id="contactForm" novalidate="novalidate" action={% url 'feedback:insert' %} method='POST'>
+                        <form type="submit" name="sentMessage" id="contactForm" novalidate="novalidate" action={% url 'feedback:insert' %} method='POST'>
                                                             {% csrf_token %}
                             <div class="control-group">
                                 <input type="text" class="form-control" name="name" placeholder="Ваше ФИО" required data-validation-required-message="Введите своё ФИО" />

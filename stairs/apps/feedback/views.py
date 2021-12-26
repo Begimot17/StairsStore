@@ -12,9 +12,12 @@ def index(request):
 
 
 def select(request):
-    feedbacks = Feedback.objects.all()
-    status = StatusOrderClient.objects.all()
-    return render(request, 'feedback-list.html', {"feedbacks": feedbacks, "status": status})
+    if request.user.is_staff:
+        feedbacks = Feedback.objects.all()
+        status = StatusOrderClient.objects.all()
+        return render(request, 'feedback-list.html', {"feedbacks": feedbacks, "status": status})
+    else:
+        return HttpResponseRedirect(reverse('main:index'))
 
 
 def insert(request):
@@ -31,10 +34,19 @@ def insert(request):
 
 
 def update(request, id):
-    feedback = Feedback.objects.get(id=id)
-    print(feedback.status)
-    feedback.status = StatusOrderClient.objects.get(id=request.POST['status'])
-    print(feedback.status)
-    print(StatusOrderClient.objects.get(id=request.POST['status']))
-    feedback.save()
-    return HttpResponseRedirect(reverse('feedback:select'))
+    if request.user.is_staff:
+        feedback = Feedback.objects.get(id=id)
+        feedback.status = StatusOrderClient.objects.get(id=request.POST['status'])
+        feedback.save()
+        return HttpResponseRedirect(reverse('feedback:select'))
+    else:
+        return HttpResponseRedirect(reverse('main:index'))
+
+
+def delete(request, id):
+    if request.user.is_staff:
+        Feedback.objects.get(id=id).delete()
+        print("1")
+        return HttpResponseRedirect(reverse('feedback:select'))
+    else:
+        return HttpResponseRedirect(reverse('main:index'))
