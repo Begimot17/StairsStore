@@ -99,6 +99,9 @@
                                 <a href={% url 'main:calculator' %} class="nav-item nav-link">Калькуляторы летсниц</a>
                                 <a href={% url 'main:team' %} class="nav-item nav-link">Команда</a>
                                 <a href={% url 'main:portfolio' %} class="nav-item nav-link">Наши выполненные заказы</a>
+                                {% if user.is_superuser %}
+                                    <a href={% url 'feedback:select' %} class="nav-item nav-link">Заявки</a>
+                                {% endif %}
                             </div>
                             <div class="ml-auto">
                                 <a class="btn" href={% url 'feedback:index' %}>Оставить заявку</a>

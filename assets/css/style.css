@@ -188,7 +188,12 @@ a:focus {
     color: #fdbe33;
     transition: none;
 }
-
+td{
+    word-break: break-word;
+}
+.td-buttons{
+    display: flex
+}
 .nav-bar .dropdown-menu {
     margin-top: 0;
     border: 0;
